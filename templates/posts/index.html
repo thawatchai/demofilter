@@ -1,0 +1,44 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+  {% if user %}
+    <div class='row-fluid block'>
+      <div class='span12'>
+        <a class='btn btn-large btn-primary' href='/create'>New Post</a>
+
+      </div>
+    </div>
+  {% endif %}
+  <div class='row-fluid block'>
+    <div class='span9'>
+      {% if not posts %}
+        <p>No post.</p>
+      {% else %}
+        {% for post in posts %}
+          <div class='post'>
+            <div class='row-fluid'>
+              <div class='span12'>
+                {{ post.content }}
+              </div>
+            </div>
+            <div class='row-fluid'>
+              <div class='span12'>
+                posted by
+                {{ post.user.nickname }}
+                at
+                {{ post.created_at }}
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      {% endif %}
+      {% if more_created_at %}
+        <div class='padded-top'>
+          <a class='btn' href='?more_created_at={{ more_created_at }}'>more items</a>
+        </div>
+      {% endif %}
+    </div>
+  </div>
+{% endblock %}
+

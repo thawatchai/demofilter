@@ -1,0 +1,28 @@
+- extends "base.html"
+
+- block content
+
+  - if user
+    .row-fluid.block
+      .span12
+        %a.btn.btn-large.btn-primary{ :href => '/create' } New Post
+
+  .row-fluid.block
+    .span9
+      - if not posts
+        %p No post.
+      - else
+        - for post in posts
+          .post
+            .row-fluid
+              .span12
+                = post.content
+            .row-fluid
+              .span12
+                posted by
+                = post.user.nickname
+                at
+                = post.created_at
+      - if more_created_at
+        .padded-top
+          %a.btn{ :href => '?more_created_at={{ more_created_at }}' } more items

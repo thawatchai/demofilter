@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+%html
+  %head
+    %title DemoFilter
+    %link{ :href => "/bootstrap/css/bootstrap.min.css", :rel => "stylesheet", :media => "screen" }
+    %link{ :href => "/stylesheets/main.css", :rel => "stylesheet", :media => "screen" }
+  %body
+    .container.page
+      .navbar
+        .navbar-inner
+          %a.brand{ :href => '/' } DemoFilter
+          %ul.nav
+            - if not user
+              %li
+                %a{ :href => "{{ login_url }}" } Login
+            - else
+              %li
+                %a{ :href => "/" }
+                  {{ user.nickname }}
+              %li
+                %a{ :href => "{{ logout_url }}" } Logout
+
+      .row-fluid
+        .span12
+          - block content
+    %script{ :src => "/javascripts/jquery-1.8.3.min.js" }
+    %script{ :src => "/bootstrap/js/bootstrap.min.js" }

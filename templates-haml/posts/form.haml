@@ -1,0 +1,15 @@
+- extends "base.html"
+
+- block content
+  %form{ :method => 'POST' }
+    - csrf_token
+    %legend
+      Create a new post
+    - if error
+      .alert.alert-error
+        You must enter some contents.
+    .control-group
+      .controls
+        %textarea.textarea-content{ :name => 'content', :rows => 4 }
+    .control-group
+      %button.btn.btn-large.btn-primary{ :type => "submit" } Save

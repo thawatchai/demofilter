@@ -1,0 +1,29 @@
+application: demofilter
+version: 1
+runtime: python27
+api_version: 1
+threadsafe: yes
+
+handlers:
+- url: /favicon\.ico
+  static_files: public/favicon.ico
+  upload: public/favicon\.ico
+
+- url: /javascripts
+  static_dir: public/javascripts
+
+- url: /stylesheets
+  static_dir: public/stylesheets
+
+- url: /bootstrap
+  static_dir: public/bootstrap
+
+- url: .*
+  script: main.app
+
+libraries:
+- name: django
+  version: "1.4"
+
+env_variables:
+  DJANGO_SETTINGS_MODULE: 'demofilter.settings'

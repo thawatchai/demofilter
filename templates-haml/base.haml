@@ -8,7 +8,8 @@
     .container.page
       .navbar
         .navbar-inner
-          %a.brand{ :href => '/' } DemoFilter
+          %a.brand{ :href => '/' }
+            %img{ :src => '/images/logo.png', :width => "160", :height => "28" }
           %ul.nav
             - if not user
               %li

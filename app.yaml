@@ -15,6 +15,9 @@ handlers:
 - url: /stylesheets
   static_dir: public/stylesheets
 
+- url: /images
+  static_dir: public/images
+
 - url: /bootstrap
   static_dir: public/bootstrap
 

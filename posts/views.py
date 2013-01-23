@@ -31,7 +31,7 @@ def index(request):
 
 def create(request):
   context = default_context()
-  if request.method == 'POST': 
+  if request.method == 'POST':
     if request.POST['content'] == '':
       context['error'] = True
     else:
@@ -42,6 +42,9 @@ def create(request):
       post.put()
       return redirect('/')
   return render(request, 'posts/form.html', context)
+
+def page(request, template_name):
+  return render(request, 'pages/%s' % template_name, default_context())
 
 def show(request):
   return

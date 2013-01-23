@@ -7,6 +7,7 @@ from django.conf.urls import patterns, include, url
 urlpatterns = patterns('',
      url(r'^$', 'posts.views.index'),
      url(r'^create/', 'posts.views.create'),
+     url(r'^page/(.*)$', 'posts.views.page'),
 
     # Examples:
     # url(r'^$', 'demofilter.views.home', name='home'),
